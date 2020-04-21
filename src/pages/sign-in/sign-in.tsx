@@ -12,8 +12,13 @@ export const SignIn: React.FC = () => {
         <img src={logo} alt="GoBarber" />
         <form>
           <h1>Faça seu login</h1>
-          <Input type="text" icon={FiMail} placeholder="E-mail" />
-          <Input type="password" icon={FiLock} placeholder="Senha" />
+          <Input type="text" name="email" icon={FiMail} placeholder="E-mail" />
+          <Input
+            type="password"
+            name="password"
+            icon={FiLock}
+            placeholder="Senha"
+          />
           <Button type="submit">Entrar</Button>
 
           <a href="forgot">Esqueci minha senha</a>
