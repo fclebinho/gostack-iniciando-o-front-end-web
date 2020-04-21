@@ -1,12 +1,12 @@
 import React from 'react';
 
 import Theme from './styles';
-import { SignIn } from './pages';
+import { SignIn, SignUp } from './pages';
 
 const App: React.FC = () => {
   return (
     <>
-      <SignIn />
+      <SignUp />
       <Theme />
     </>
   );
