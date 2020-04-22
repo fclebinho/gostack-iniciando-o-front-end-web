@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { AuthProvider } from './hooks';
+import { HooksProvider } from './hooks';
 import Theme from './styles';
 import { SignIn, SignUp } from './pages';
 
 const App: React.FC = () => {
   return (
     <>
-      <AuthProvider>
+      <HooksProvider>
         <SignIn />
-      </AuthProvider>
+      </HooksProvider>
       <Theme />
     </>
   );
