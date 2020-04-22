@@ -6,9 +6,9 @@ import { SignIn, SignUp, Dashboard } from '../pages';
 
 export const Routes: React.FC = () => (
   <Switch>
-    <Route path="/" exact component={SignIn} />
+    <PrivateRoute path="/" exact component={Dashboard} />
     <Route path="/sign-up" component={SignUp} />
-    <PrivateRoute path="/dashboard" component={Dashboard} />
+    <Route path="/sign-in" component={SignIn} />
   </Switch>
 );
 

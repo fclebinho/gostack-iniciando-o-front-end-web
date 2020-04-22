@@ -38,6 +38,11 @@ export const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
+
+        addToast({
+          title: 'Login realizado com sucesso.',
+          type: 'success',
+        });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidatorError(err);
@@ -46,8 +51,8 @@ export const SignIn: React.FC = () => {
         }
 
         addToast({
-          title: 'Hello World',
-          description: 'HEhahahhhehehhe',
+          title: 'Erro inesperado',
+          description: 'Ocorreu erro no servidor',
           type: 'error',
         });
       }

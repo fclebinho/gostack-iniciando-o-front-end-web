@@ -3,6 +3,7 @@ import {
   Route,
   RouteProps as ReactDOMRouteProps,
   Redirect,
+  useHistory,
 } from 'react-router-dom';
 
 import { useAuth } from '../../hooks';
@@ -24,7 +25,7 @@ export const PrivateRoute: React.FC<RouteProps> = ({
         return user ? (
           <Component />
         ) : (
-          <Redirect to={{ pathname: '/', state: { location } }} />
+          <Redirect to={{ pathname: '/sign-in', state: { location } }} />
         );
       }}
     />
