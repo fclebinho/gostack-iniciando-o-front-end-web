@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AuthProvider } from './context';
+import { AuthProvider } from './hooks';
 import Theme from './styles';
 import { SignIn, SignUp } from './pages';
 

@@ -14,6 +14,7 @@ export interface AuthCredentialsProps {
 export interface AuthContextProps {
   user: object;
   signIn(credentials: AuthCredentialsProps): Promise<void>;
+  signOut(): void;
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
@@ -29,6 +30,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     return {} as AuthDataProps;
   });
+
   const signIn = useCallback(async ({ email, password }) => {
     const response = await api.post('sessions', {
       email,
@@ -41,8 +43,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     setData({ token, user });
   }, []);
 
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@GoBarber:token');
+    localStorage.removeItem('@GoBarber:user');
+    setData({} as AuthDataProps);
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
