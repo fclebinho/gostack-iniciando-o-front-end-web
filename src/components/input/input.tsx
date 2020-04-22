@@ -54,6 +54,7 @@ export const Input: React.FC<InputProps> = ({
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
       />
+      {error}
     </Container>
   );
 };
