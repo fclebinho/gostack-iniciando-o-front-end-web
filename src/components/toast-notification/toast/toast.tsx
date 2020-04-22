@@ -12,6 +12,7 @@ import { ToastMessageProps } from '../toast-notification';
 
 export interface ToastProps {
   message: ToastMessageProps;
+  style: object;
 }
 
 const icons = {
@@ -20,7 +21,7 @@ const icons = {
   error: <FiAlertCircle size={20} />,
 };
 
-export const Toast: React.FC<ToastProps> = ({ message }) => {
+export const Toast: React.FC<ToastProps> = ({ message, style }) => {
   const { removeToast } = useToast();
 
   useEffect(() => {
@@ -32,7 +33,11 @@ export const Toast: React.FC<ToastProps> = ({ message }) => {
   }, [removeToast, message.id]);
 
   return (
-    <Content type={message.type} hasDescription={!!message.description}>
+    <Content
+      type={message.type}
+      hasDescription={!!message.description}
+      style={style}
+    >
       {icons[message.type || 'info']}
 
       <div>

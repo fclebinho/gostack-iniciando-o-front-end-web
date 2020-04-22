@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { animated } from 'react-spring';
 
 import { ToastStyleProps } from '../toast-notification';
 
@@ -17,7 +18,7 @@ const toastTypeVariables = {
   `,
 };
 
-export const Content = styled.div<ToastStyleProps>`
+export const Content = styled(animated.div)<ToastStyleProps>`
   width: 360px;
 
   position: relative;
