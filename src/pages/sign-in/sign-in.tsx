@@ -4,7 +4,7 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import { AuthContext } from '../../context';
+import { useAuth } from '../../context';
 import { getValidatorError } from '../../utils/validator-error';
 import logo from '../../assets/images/logo.svg';
 import { Container, Content, Background } from './styles';
@@ -17,7 +17,7 @@ export interface SignInFormDataProps {
 
 export const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn, user } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: SignInFormDataProps): Promise<void> => {
