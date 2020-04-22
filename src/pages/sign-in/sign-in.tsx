@@ -4,11 +4,11 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import { useAuth, useToast } from '../../hooks';
+import { useAuth } from '../../hooks';
 import { getValidatorError } from '../../utils/validator-error';
 import logo from '../../assets/images/logo.svg';
 import { Container, Content, Background } from './styles';
-import { Input, Button } from '../../components';
+import { Input, Button, useToast } from '../../components';
 
 export interface SignInFormDataProps {
   email: string;
@@ -43,7 +43,11 @@ export const SignIn: React.FC = () => {
           formRef.current?.setErrors(errors);
         }
 
-        addToast();
+        addToast({
+          title: 'Hello World',
+          description: 'HEhahahhhehehhe',
+          type: 'error',
+        });
       }
     },
     [signIn, addToast],

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AuthProvider } from './auth';
-import { ToastProvider } from './toast';
+import { ToastProvider } from '../components';
 
 export const HooksProvider: React.FC = ({ children }) => (
   <AuthProvider>
@@ -10,4 +10,3 @@ export const HooksProvider: React.FC = ({ children }) => (
 );
 
 export * from './auth';
-export * from './toast';
