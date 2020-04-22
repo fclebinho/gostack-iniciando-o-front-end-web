@@ -1,11 +1,12 @@
 import React, { useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { FiArrowLeft, FiUser, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
 import logo from '../../assets/images/logo.svg';
-import { Container, Content, Background } from './styles';
+import { Container, Content, AnimationContent, Background } from './styles';
 import { Input, Button } from '../../components';
 import { getValidatorError } from '../../utils/validator-error';
 
@@ -35,23 +36,30 @@ export const SignUp: React.FC = () => {
     <Container>
       <Background />
       <Content>
-        <img src={logo} alt="GoBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu cadastro</h1>
-          <Input type="text" name="name" icon={FiUser} placeholder="Nome" />
-          <Input type="text" name="email" icon={FiMail} placeholder="E-mail" />
-          <Input
-            type="password"
-            name="password"
-            icon={FiLock}
-            placeholder="Senha"
-          />
-          <Button type="submit">Cadastrar</Button>
-        </Form>
-        <a href="signup">
-          <FiArrowLeft />
-          Já possuo uma conta
-        </a>
+        <AnimationContent>
+          <img src={logo} alt="GoBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu cadastro</h1>
+            <Input type="text" name="name" icon={FiUser} placeholder="Nome" />
+            <Input
+              type="text"
+              name="email"
+              icon={FiMail}
+              placeholder="E-mail"
+            />
+            <Input
+              type="password"
+              name="password"
+              icon={FiLock}
+              placeholder="Senha"
+            />
+            <Button type="submit">Cadastrar</Button>
+          </Form>
+          <Link to="/">
+            <FiArrowLeft />
+            Já possuo uma conta
+          </Link>
+        </AnimationContent>
       </Content>
     </Container>
   );

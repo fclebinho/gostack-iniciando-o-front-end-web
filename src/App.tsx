@@ -1,17 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { HooksProvider } from './hooks';
 import Theme from './styles';
-import { SignIn, SignUp } from './pages';
+import { Routes } from './routes';
 
 const App: React.FC = () => {
   return (
-    <>
+    <BrowserRouter>
       <HooksProvider>
-        <SignIn />
+        <Routes />
       </HooksProvider>
       <Theme />
-    </>
+    </BrowserRouter>
   );
 };
 
